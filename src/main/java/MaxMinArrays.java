@@ -11,21 +11,20 @@ public class MaxMinArrays {
         int indexEnd = arr.length -1;
 
         while(indexStart<=indexEnd){
-
-            if(indexResult<arr.length){
-                resultArray[indexResult]=arr[indexEnd];
-            }
-
+            fillCellInArr(arr, resultArray, indexResult, indexEnd);
             indexResult++;
-            if(indexResult<arr.length){
-                resultArray[indexResult]=arr[indexStart];
-            }
-
+            fillCellInArr(arr, resultArray, indexResult, indexStart);
             indexStart++;
             indexEnd--;
             indexResult++;
         }
 
         return  resultArray;
+    }
+
+    private static void fillCellInArr(int[] arr, int[] resultArray, int indexResult, int indexEnd) {
+        if (indexResult < arr.length) {
+            resultArray[indexResult] = arr[indexEnd];
+        }
     }
 }
